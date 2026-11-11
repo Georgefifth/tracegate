@@ -1,0 +1,442 @@
+{
+  "project_name": "TraceGate",
+  "tagline": "Calibrated Paper-ECG Digitizer, Visual Registration Overlay & GTQI Interval Safety Gate",
+  "preset": "dark-premium",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "bgm": "cyber-pulse",
+  "scenes": [
+    {
+      "scene_id": "opening",
+      "kicker": "AI FOR MEDICINE HACKATHON · SIGNAL RECOVERY",
+      "title": "TraceGate: Calibrated Paper-ECG Signal Recovery",
+      "subtitle": "Recovering physical millivolt waveforms (25 mm/s, 10 mm/mV) with sub-millimeter overlay & GTQI gating",
+      "duration": 11.75,
+      "narration": "TraceGate recovers calibrated 'millivolt ECG waveforms' from paper scans at 18.16dB SNR and 2.9ms QT error.",
+      "visual_type": "opening_title",
+      "fact_ids": [
+        "fact_viterbi_gated_snr",
+        "fact_interval_mae"
+      ],
+      "assets": [
+        "images/tracegate_logo.svg"
+      ],
+      "badges": [
+        "18.16dB GATED SNR [17.63–18.66]",
+        "2.9ms QT INTERVAL MAE",
+        "GTQI ≥ 65 SAFETY GATE"
+      ],
+      "animations": [
+        {
+          "type": "highlight",
+          "target": "CALIBRATION RETICLE",
+          "text": "1mV Pulse to Sub-mm Cyan Trace Lock",
+          "subtext": "25 mm/s · 10 mm/mV physical grid calibration",
+          "start": 0.78,
+          "duration": 9.66,
+          "x": 50,
+          "y": 46,
+          "w": 38,
+          "h": 42
+        }
+      ],
+      "audio_file": "audio/opening.mp3",
+      "captions": [
+        {
+          "start": 0.05,
+          "end": 8.96,
+          "text": "TraceGate recovers calibrated 'millivolt ECG waveforms' from paper scans at 18.16dB SNR and 2.9ms QT error."
+        }
+      ]
+    },
+    {
+      "scene_id": "live_demo_workbench",
+      "kicker": "LIVE PRODUCT DEMONSTRATION · PART 1",
+      "title": "Live Calibration, Cyan Overlay & CSV Export",
+      "subtitle": "Zero-install workbench: PTB-XL #00184 & skewed EMS strip #01492 (+4.2° tilt)",
+      "duration": 13.7,
+      "narration": "Our live workbench calibrates the '25mm/s grid', overlays the cyan trace at 27.7dB SNR, and exports calibrated CSV data.",
+      "visual_type": "real_footage_with_annotations",
+      "fact_ids": [
+        "fact_viterbi_gated_snr",
+        "fact_interval_mae"
+      ],
+      "assets": [
+        "images/live_workbench_capture.png"
+      ],
+      "animations": [
+        {
+          "type": "highlight",
+          "target": "SUB-MM CYAN OVERLAY",
+          "text": "Direct Paper-to-Waveform Registration",
+          "subtext": "Clinician verifies ink match before trusting intervals",
+          "start": 0.6,
+          "duration": 4.17,
+          "x": 32,
+          "y": 56,
+          "w": 46,
+          "h": 28
+        },
+        {
+          "type": "zoom",
+          "target": "VITERBI VS ARGMAX",
+          "text": "Viterbi 27.7dB vs Naive Argmax 8.75dB",
+          "subtext": "Suppresses +4.2° skew & 5mm grid spikes",
+          "start": 4.88,
+          "duration": 4.29,
+          "x": 35,
+          "y": 52,
+          "w": 42,
+          "h": 30
+        },
+        {
+          "type": "label",
+          "target": "VERIFIED INTERVALS",
+          "text": "Export 250Hz Calibrated mV/ms CSV",
+          "subtext": "HR 88.4 BPM · QRS 97 ms · QT 375 ms",
+          "start": 9.29,
+          "duration": 3.81,
+          "x": 76,
+          "y": 62,
+          "w": 24,
+          "h": 28
+        }
+      ],
+      "audio_file": "audio/live_demo_workbench.mp3",
+      "captions": [
+        {
+          "start": 0.05,
+          "end": 10.46,
+          "text": "Our live workbench calibrates the '25mm/s grid', overlays the cyan trace at 27.7dB SNR, and exports calibrated CSV data."
+        }
+      ]
+    },
+    {
+      "scene_id": "problem_bottleneck",
+      "kicker": "CLINICAL BOTTLENECK & BASELINE FAILURES",
+      "title": "Why Existing Paper-ECG Digitizers Fail Clinicians",
+      "subtitle": "Broken LFS checkpoints (#22), non-determinism (#48), and shadow hijacking on phone photos",
+      "duration": 13.67,
+      "narration": "Existing digitizers fail from broken LFS weights or 'shadow hijacking', where column argmax drops to 3.47dB SNR on faded scans.",
+      "visual_type": "problem_flow",
+      "fact_ids": [
+        "fact_interval_mae"
+      ],
+      "diagram": {
+        "nodes": [
+          {
+            "id": "node_paper",
+            "label": "Thermal Paper ECG",
+            "sublabel": "Skew, shadow & 55% fade",
+            "category": "input",
+            "metric": "25 mm/s"
+          },
+          {
+            "id": "node_repos",
+            "label": "Broken Open Repos",
+            "sublabel": "LFS quota #22 & non-det #48",
+            "category": "bottleneck",
+            "metric": "GPU lock"
+          },
+          {
+            "id": "node_argmax",
+            "label": "Naive Column-Argmax",
+            "sublabel": "Grid & shadow hijacking",
+            "category": "bottleneck",
+            "metric": "81.3ms QT err"
+          },
+          {
+            "id": "node_tracegate",
+            "label": "TraceGate Viterbi + Gate",
+            "sublabel": "Calibrated mV + GTQI ≥ 65",
+            "category": "output",
+            "metric": "2.9ms QT MAE"
+          }
+        ],
+        "edges": [
+          {
+            "from": "node_paper",
+            "to": "node_repos",
+            "label": "CLI FRICTION",
+            "status": "bottleneck"
+          },
+          {
+            "from": "node_repos",
+            "to": "node_argmax",
+            "label": "SHADOW HIJACK",
+            "status": "bottleneck"
+          },
+          {
+            "from": "node_argmax",
+            "to": "node_tracegate",
+            "label": "VITERBI + GTQI",
+            "status": "optimized"
+          }
+        ]
+      },
+      "animations": [
+        {
+          "type": "highlight",
+          "target": "node_argmax",
+          "text": "Tier 4 Faded Ink: Argmax 81.3ms QT MAE",
+          "start": 0.99,
+          "duration": 5.59
+        },
+        {
+          "type": "highlight",
+          "target": "node_tracegate",
+          "text": "TraceGate Gated QT MAE: 2.9ms [2.02–3.90]",
+          "start": 6.71,
+          "duration": 5.97
+        }
+      ],
+      "audio_file": "audio/problem_bottleneck.mp3",
+      "captions": [
+        {
+          "start": 0.05,
+          "end": 10.45,
+          "text": "Existing digitizers fail from broken LFS weights or 'shadow hijacking', where column argmax drops to 3.47dB SNR on faded scans."
+        }
+      ]
+    },
+    {
+      "scene_id": "signal_architecture",
+      "kicker": "FOUR-STAGE MATHEMATICAL PIPELINE",
+      "title": "Deterministic 2D-to-1D Signal Recovery Architecture",
+      "subtitle": "Spectral grid calibration, chromatic grid suppression, Huber Viterbi DP, and GTQI gating",
+      "duration": 12.3,
+      "narration": "TraceGate combines 'spectral grid deskewing', shadow normalization, and a Huber 'Viterbi tracker' with parabolic P-QRS-T fiducial delineation.",
+      "visual_type": "exploded_view",
+      "fact_ids": [
+        "fact_viterbi_gated_snr",
+        "fact_gtqi_safety_gate"
+      ],
+      "assets": [
+        "images/slide-02-viterbi-architecture.svg"
+      ],
+      "exploded_parts": [
+        {
+          "id": "stage_grid",
+          "name": "Stage 1 · Spectral Grid Pitch & Deskew",
+          "spec": "R-G AUTOCORRELATION · ±5° RADON",
+          "role": "Recovers exact px/mm pitch and corrects planar rotation skew",
+          "layer": -1.6
+        },
+        {
+          "id": "stage_chroma",
+          "name": "Stage 2 · Shadow & Chromatic Grid Filter",
+          "spec": "25x35 UNIFORM BG · RED SUPPRESSION",
+          "role": "Normalizes uneven phone shadows (+28.3 dB on MIT-BIH #112)",
+          "layer": -0.5
+        },
+        {
+          "id": "stage_viterbi",
+          "name": "Stage 3 · Global Viterbi DP Tracker",
+          "spec": "HUBER SLEW PENALTY · PARABOLIC SUB-PX",
+          "role": "Tracks steep R-wave upstrokes while ignoring text stamps (+30.9 dB)",
+          "layer": 0.6
+        },
+        {
+          "id": "stage_gtqi",
+          "name": "Stage 4 · GTQI Gate & Fiducial Calipers",
+          "spec": "GTQI ≥ 65 GATE · Q/R/S/T DELINEATOR",
+          "role": "Withholds intervals on lead collisions or blank grids (GTQI < 65)",
+          "layer": 1.7
+        }
+      ],
+      "animations": [
+        {
+          "type": "explode",
+          "target": "assembly",
+          "start": 0.43,
+          "duration": 11.23
+        },
+        {
+          "type": "highlight",
+          "target": "stage_viterbi",
+          "text": "Huber Slew Penalty Preserves Steep R-Peaks",
+          "start": 1.28,
+          "duration": 4.81
+        },
+        {
+          "type": "label",
+          "target": "stage_gtqi",
+          "text": "GTQI < 65 Withholds Unsafe QTc Readings",
+          "start": 6.2,
+          "duration": 5.13
+        }
+      ],
+      "audio_file": "audio/signal_architecture.mp3",
+      "captions": [
+        {
+          "start": 0.05,
+          "end": 9.35,
+          "text": "TraceGate combines 'spectral grid deskewing', shadow normalization, and a Huber 'Viterbi tracker' with parabolic P-QRS-T fiducial delineation."
+        }
+      ]
+    },
+    {
+      "scene_id": "live_demo_safety_gate",
+      "kicker": "LIVE PRODUCT DEMONSTRATION · PART 2",
+      "title": "GTQI Safety Gate Withhold & Benchmark Explorer",
+      "subtitle": "Refusing Tier 5 colliding leads (GTQI 41/100) and inspecting the 120-strip benchmark",
+      "duration": 12.06,
+      "narration": "When adjacent leads collide, our 'GTQI safety gate' scores 41 out of 100 and withholds QTc intervals to prevent false alarms.",
+      "visual_type": "real_footage_with_annotations",
+      "fact_ids": [
+        "fact_gtqi_safety_gate",
+        "fact_viterbi_gated_snr"
+      ],
+      "assets": [
+        "images/live_safety_gate_capture.png"
+      ],
+      "animations": [
+        {
+          "type": "highlight",
+          "target": "SAFETY GATE LOCKED",
+          "text": "GTQI 41/100 (< 65): All 6 Intervals WITHHELD",
+          "subtext": "Prevents false long-QT report on colliding V3/V4 leads",
+          "start": 0.55,
+          "duration": 3.84,
+          "x": 74,
+          "y": 54,
+          "w": 26,
+          "h": 34
+        },
+        {
+          "type": "zoom",
+          "target": "COLLISION WINDOW",
+          "text": "Artifact Collision Region Boxed in Red",
+          "subtext": "1,380 ms to 1,920 ms V4 R-wave intrusion",
+          "start": 4.5,
+          "duration": 3.84,
+          "x": 42,
+          "y": 64,
+          "w": 36,
+          "h": 28
+        },
+        {
+          "type": "label",
+          "target": "WITHHELD CARDS",
+          "text": "Zero Fabricated Interval Numbers",
+          "subtext": "Clinician prompted for manual caliper check",
+          "start": 8.44,
+          "duration": 3.07,
+          "x": 76,
+          "y": 66,
+          "w": 24,
+          "h": 26
+        }
+      ],
+      "audio_file": "audio/live_demo_safety_gate.mp3",
+      "captions": [
+        {
+          "start": 0.05,
+          "end": 9.1,
+          "text": "When adjacent leads collide, our 'GTQI safety gate' scores 41 out of 100 and withholds QTc intervals to prevent false alarms."
+        }
+      ]
+    },
+    {
+      "scene_id": "heldout_validation",
+      "kicker": "HELD-OUT PHYSIONET EVALUATION · SEED = 42",
+      "title": "Quantitative Results & Honest Clinical Limitations",
+      "subtitle": "120-strip 5-tier benchmark (24 subjects) + 16-case external MIT-BIH validation",
+      "duration": 14.68,
+      "narration": "Across 120 held-out strips and 12 real 'MIT-BIH' records, gated Viterbi achieves 2.9ms QT MAE while stating explicit clinical boundaries.",
+      "visual_type": "technical_validation",
+      "fact_ids": [
+        "fact_viterbi_gated_snr",
+        "fact_interval_mae",
+        "fact_real_mitbih_validation"
+      ],
+      "metrics": [
+        {
+          "id": "snr_gated",
+          "label": "Gated Waveform SNR (60% Coverage)",
+          "value": 18.16,
+          "unit": "dB",
+          "baseline": 11.54,
+          "status": "verified",
+          "note": "95% CI [17.63–18.66 dB], RMSE 37.1 µV vs 107.8 µV Argmax"
+        },
+        {
+          "id": "qt_mae",
+          "label": "Gated QT Interval MAE (Clinical Units)",
+          "value": 2.9,
+          "unit": "ms",
+          "baseline": 25.7,
+          "status": "verified",
+          "note": "95% CI [2.02–3.90 ms]; QRS MAE 3.5 ms; HR MAE 0.12 BPM"
+        },
+        {
+          "id": "real_mitbih_snr",
+          "label": "Real PhysioNet MIT-BIH Cohort Mean SNR",
+          "value": 14.69,
+          "unit": "dB",
+          "baseline": 6.05,
+          "status": "verified",
+          "note": "12 real patient records (r = 0.9419, +8.64 dB over Argmax)"
+        }
+      ],
+      "limitations": [
+        "Research prototype — NOT a cleared diagnostic medical device; clinician must inspect cyan overlay.",
+        "Accuracy–availability trade-off: GTQI ≥ 65 lowers QT MAE from 9.6 ms to 2.9 ms by withholding 40% degraded/colliding strips.",
+        "On pristine 300 DPI scans (Tier 1), simple Column-Argmax (20.56 dB) slightly edges smoothed Viterbi (19.14 dB).",
+        "Single-lead 2.5s scope; extreme >3.2 mV PVCs (MIT-BIH #119) exceed 10 mm/mV height and require 5 mm/mV half-gain."
+      ],
+      "animations": [
+        {
+          "type": "highlight",
+          "target": "qt_mae",
+          "text": "QT MAE Reduced from 25.7ms to 2.9ms",
+          "start": 1.28,
+          "duration": 6.13
+        },
+        {
+          "type": "label",
+          "target": "real_mitbih_snr",
+          "text": "+8.64 dB Advantage on Real MIT-BIH ECGs",
+          "start": 7.53,
+          "duration": 6.38
+        }
+      ],
+      "audio_file": "audio/heldout_validation.mp3",
+      "captions": [
+        {
+          "start": 0.05,
+          "end": 11.3,
+          "text": "Across 120 held-out strips and 12 real 'MIT-BIH' records, gated Viterbi achieves 2.9ms QT MAE while stating explicit clinical boundaries."
+        }
+      ]
+    },
+    {
+      "scene_id": "closing",
+      "kicker": "REPRODUCIBLE CLINICAL AI · OPEN SOURCE",
+      "title": "TraceGate: Measured Honestly, Built to Verify",
+      "subtitle": "Public Repo: github.com/Georgefifth/tracegate · Live App: georgefifth.github.io/tracegate",
+      "duration": 9.83,
+      "narration": "TraceGate delivers reproducible 'paper-to-digital ECG' recovery with open code and held-out clinical evaluation.",
+      "visual_type": "closing_summary",
+      "fact_ids": [
+        "fact_viterbi_gated_snr",
+        "fact_interval_mae",
+        "fact_gtqi_safety_gate"
+      ],
+      "badges": [
+        "WAVEFORM SNR::18.16 dB (RMSE 37.1 µV, r=0.9914)",
+        "INTERVAL ERROR::2.9 ms QT MAE · 3.5 ms QRS MAE",
+        "REPRODUCIBILITY::Seed=42 · Pytest 6/6 · Playwright 14/14"
+      ],
+      "audio_file": "audio/closing.mp3",
+      "captions": [
+        {
+          "start": 0.05,
+          "end": 7.22,
+          "text": "TraceGate delivers reproducible 'paper-to-digital ECG' recovery with open code and held-out clinical evaluation."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#F6F4EE" />
+  <!-- Header Banner -->
+  <rect x="0" y="0" width="1920" height="110" fill="#11181C" />
+  <text x="64" y="46" fill="#00E5D1" font-family="IBM Plex Mono, monospace" font-size="18" font-weight="700" letter-spacing="2">SLIDE 01 // CLINICAL BOTTLENECK &amp; FAILURE ANALYSIS</text>
+  <text x="64" y="84" fill="#FFFFFF" font-family="IBM Plex Sans, sans-serif" font-size="34" font-weight="700">Why Existing Paper-ECG Digitizers Fail in Real Clinical Workflows</text>
+
+  <!-- 4-Step Horizontal Flowchart -->
+  <!-- Node 1 -->
+  <rect x="64" y="180" width="400" height="360" rx="8" fill="#FFFFFF" stroke="#D6D3C9" stroke-width="2" />
+  <rect x="64" y="180" width="400" height="44" rx="8" fill="#EFECE4" />
+  <text x="88" y="208" fill="#11181C" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="700">01. ARCHIVAL &amp; EMS PAPER INPUT</text>
+  <text x="88" y="260" fill="#11181C" font-family="IBM Plex Sans, sans-serif" font-size="22" font-weight="700">Thermal Printouts &amp; Photos</text>
+  <text x="88" y="298" fill="#4F5D65" font-family="IBM Plex Sans, sans-serif" font-size="17">• 25 mm/s, 10 mm/mV terracotta grid</text>
+  <text x="88" y="330" fill="#4F5D65" font-family="IBM Plex Sans, sans-serif" font-size="17">• Handheld skew (±4.5°) &amp; shadows</text>
+  <text x="88" y="362" fill="#4F5D65" font-family="IBM Plex Sans, sans-serif" font-size="17">• 55% archival thermal ink fade</text>
+  <text x="88" y="394" fill="#4F5D65" font-family="IBM Plex Sans, sans-serif" font-size="17">• Adjacent LVH lead R-wave collisions</text>
+  <rect x="88" y="440" width="352" height="68" rx="6" fill="#F8F4EC" stroke="#D96B52" stroke-width="1.5" />
+  <path d="M 104 484 L 130 484 L 130 456 L 146 456 L 146 484 L 180 484 L 192 448 L 202 496 L 212 484 L 245 484 Q 265 464 285 484 L 420 484" fill="none" stroke="#171E22" stroke-width="3" />
+
+  <!-- Arrow 1 -> 2 -->
+  <path d="M 468 360 L 516 360" stroke="#007A78" stroke-width="4" marker-end="url(#arrow)" />
+  <polygon points="516,352 532,360 516,368" fill="#007A78" />
+
+  <!-- Node 2 -->
+  <rect x="536" y="180" width="410" height="360" rx="8" fill="#FFF1F2" stroke="#FDA4AF" stroke-width="2" />
+  <rect x="536" y="180" width="410" height="44" rx="8" fill="#FFE4E6" />
+  <text x="560" y="208" fill="#BE123C" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="700">02. OPEN-SOURCE REPO FAILURES</text>
+  <text x="560" y="260" fill="#11181C" font-family="IBM Plex Sans, sans-serif" font-size="22" font-weight="700">Broken Weights &amp; Non-Determinism</text>
+  <text x="560" y="300" fill="#BE123C" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="600">✗ felixkrones/ECG-Digitiser (#22)</text>
+  <text x="560" y="328" fill="#4F5D65" font-family="IBM Plex Sans, sans-serif" font-size="16">Git LFS quota exceeded; nnUNet GPU lock</text>
+  <text x="560" y="368" fill="#BE123C" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="600">✗ Open-ECG-Digitizer (#48)</text>
+  <text x="560" y="396" fill="#4F5D65" font-family="IBM Plex Sans, sans-serif" font-size="16">Same image yields different signals on rerun</text>
+  <text x="560" y="436" fill="#BE123C" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="600">✗ ecg-image-kit (#18)</text>
+  <text x="560" y="464" fill="#4F5D65" font-family="IBM Plex Sans, sans-serif" font-size="16">Missing end-to-end digitizer &amp; interval gate</text>
+
+  <!-- Arrow 2 -> 3 -->
+  <path d="M 950 360 L 998 360" stroke="#BE123C" stroke-width="4" />
+  <polygon points="998,352 1014,360 998,368" fill="#BE123C" />
+
+  <!-- Node 3 -->
+  <rect x="1018" y="180" width="410" height="360" rx="8" fill="#FFFBEB" stroke="#FCD34D" stroke-width="2" />
+  <rect x="1018" y="180" width="410" height="44" rx="8" fill="#FEF3C7" />
+  <text x="1042" y="208" fill="#B45309" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="700">03. NAIVE PIXEL EXTRACTION</text>
+  <text x="1042" y="260" fill="#11181C" font-family="IBM Plex Sans, sans-serif" font-size="22" font-weight="700">Grid &amp; Shadow Hijacking</text>
+  <text x="1042" y="298" fill="#4F5D65" font-family="IBM Plex Sans, sans-serif" font-size="17">• Column-Argmax snaps to dark 5mm grid</text>
+  <text x="1042" y="330" fill="#4F5D65" font-family="IBM Plex Sans, sans-serif" font-size="17">• Phone shadows hijack baseline (-8.7 dB)</text>
+  <text x="1042" y="362" fill="#4F5D65" font-family="IBM Plex Sans, sans-serif" font-size="17">• Top barcode stamps cause -11.0 dB SNR</text>
+  <text x="1042" y="394" fill="#4F5D65" font-family="IBM Plex Sans, sans-serif" font-size="17">• Faded ink inflates QT MAE to 81.3 ms</text>
+  <rect x="1042" y="432" width="362" height="76" rx="6" fill="#0D1518" />
+  <text x="1062" y="464" fill="#F59E0B" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="700">Argmax Tier 4 SNR: 3.47 dB</text>
+  <text x="1062" y="492" fill="#FDA4AF" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="700">Argmax Tier 4 QT MAE: 81.3 ms</text>
+
+  <!-- Arrow 3 -> 4 -->
+  <path d="M 1432 360 L 1480 360" stroke="#007A78" stroke-width="4" />
+  <polygon points="1480,352 1496,360 1480,368" fill="#007A78" />
+
+  <!-- Node 4 -->
+  <rect x="1500" y="180" width="356" height="360" rx="8" fill="#F0FDF4" stroke="#86EFAC" stroke-width="2.5" />
+  <rect x="1500" y="180" width="356" height="44" rx="8" fill="#DCFCE7" />
+  <text x="1524" y="208" fill="#15803D" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="700">04. TRACEGATE SOLUTION</text>
+  <text x="1524" y="260" fill="#11181C" font-family="IBM Plex Sans, sans-serif" font-size="22" font-weight="700">Calibrated &amp; Gated Recovery</text>
+  <text x="1524" y="298" fill="#15803D" font-family="IBM Plex Sans, sans-serif" font-size="17" font-weight="600">✓ Spectral 1mm/5mm Grid Calibration</text>
+  <text x="1524" y="330" fill="#15803D" font-family="IBM Plex Sans, sans-serif" font-size="17" font-weight="600">✓ Global Viterbi DP Continuity Path</text>
+  <text x="1524" y="362" fill="#15803D" font-family="IBM Plex Sans, sans-serif" font-size="17" font-weight="600">✓ Sub-mm Cyan Overlay on Paper Ink</text>
+  <text x="1524" y="394" fill="#15803D" font-family="IBM Plex Sans, sans-serif" font-size="17" font-weight="600">✓ GTQI &lt; 65 Withholds Bad Intervals</text>
+  <rect x="1524" y="432" width="308" height="76" rx="6" fill="#0D1518" />
+  <text x="1544" y="464" fill="#00E5D1" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="700">Gated SNR: 18.16 dB (r=0.9914)</text>
+  <text x="1544" y="492" fill="#86EFAC" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="700">QT MAE: 2.9 ms | QRS: 3.5 ms</text>
+
+  <!-- Bottom Comparison Matrix -->
+  <rect x="64" y="590" width="1792" height="420" rx="8" fill="#FFFFFF" stroke="#D6D3C9" stroke-width="2" />
+  <text x="96" y="640" fill="#11181C" font-family="IBM Plex Sans, sans-serif" font-size="24" font-weight="700">Competitive &amp; Architectural Comparison Across Paper-ECG Tools</text>
+  <line x1="96" y1="664" x2="1824" y2="664" stroke="#D6D3C9" stroke-width="2" />
+  <text x="96" y="704" fill="#4F5D65" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="700">CAPABILITY / CRITERION</text>
+  <text x="580" y="704" fill="#4F5D65" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="700">ECG-Digitiser (2024)</text>
+  <text x="940" y="704" fill="#4F5D65" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="700">Open-ECG-Digitizer</text>
+  <text x="1300" y="704" fill="#007A78" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="700">TraceGate v1.0 (Ours)</text>
+
+  <text x="96" y="760" fill="#11181C" font-family="IBM Plex Sans, sans-serif" font-size="18" font-weight="600">1. Runs on Laptop CPU / Zero Broken LFS Weights</text>
+  <text x="580" y="760" fill="#BE123C" font-family="IBM Plex Mono, monospace" font-size="17">✗ LFS Quota Exceeded (#22)</text>
+  <text x="940" y="760" fill="#B45309" font-family="IBM Plex Mono, monospace" font-size="17">~ PyTorch Weights Required</text>
+  <text x="1300" y="760" fill="#15803D" font-family="IBM Plex Mono, monospace" font-size="17" font-weight="700">✓ 14 ms/strip CPU &amp; Browser DSP</text>
+
+  <text x="96" y="820" fill="#11181C" font-family="IBM Plex Sans, sans-serif" font-size="18" font-weight="600">2. Deterministic Repeated Inference</text>
+  <text x="580" y="820" fill="#4F5D65" font-family="IBM Plex Mono, monospace" font-size="17">✓ Deterministic if weights load</text>
+  <text x="940" y="820" fill="#BE123C" font-family="IBM Plex Mono, monospace" font-size="17">✗ Non-deterministic (#48)</text>
+  <text x="1300" y="820" fill="#15803D" font-family="IBM Plex Mono, monospace" font-size="17" font-weight="700">✓ 100% Exact Bitwise Reproducible</text>
+
+  <text x="96" y="880" fill="#11181C" font-family="IBM Plex Sans, sans-serif" font-size="18" font-weight="600">3. Sub-Millimeter Visual Overlay Verification</text>
+  <text x="580" y="880" fill="#BE123C" font-family="IBM Plex Mono, monospace" font-size="17">✗ Headless CLI Only</text>
+  <text x="940" y="880" fill="#BE123C" font-family="IBM Plex Mono, monospace" font-size="17">✗ No Caliper / Residual Loupe</text>
+  <text x="1300" y="880" fill="#15803D" font-family="IBM Plex Mono, monospace" font-size="17" font-weight="700">✓ Dual-Layer Cyan Overlay + µV Strip</text>
+
+  <text x="96" y="940" fill="#11181C" font-family="IBM Plex Sans, sans-serif" font-size="18" font-weight="600">4. Reliability Gate Withholding Corrupted Intervals</text>
+  <text x="580" y="940" fill="#BE123C" font-family="IBM Plex Mono, monospace" font-size="17">✗ None</text>
+  <text x="940" y="940" fill="#BE123C" font-family="IBM Plex Mono, monospace" font-size="17">✗ None</text>
+  <text x="1300" y="940" fill="#15803D" font-family="IBM Plex Mono, monospace" font-size="17" font-weight="700">✓ GTQI &lt; 65 Safety Gate (60% / 2.9ms)</text>
+</svg>

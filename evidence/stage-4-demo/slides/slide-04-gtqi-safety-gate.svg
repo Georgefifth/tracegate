@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#0D1518" />
+  <rect x="0" y="0" width="1920" height="110" fill="#131F24" />
+  <text x="64" y="46" fill="#00E5D1" font-family="IBM Plex Mono, monospace" font-size="18" font-weight="700" letter-spacing="2">SLIDE 04 // CLINICAL SAFETY, ETHICS &amp; LIMITATIONS</text>
+  <text x="64" y="84" fill="#FFFFFF" font-family="IBM Plex Sans, sans-serif" font-size="34" font-weight="700">Where TraceGate Works, Where It Stops, and Who Could Be Harmed</text>
+
+  <!-- Left Box: Pass Case vs Right Box: Withheld Case -->
+  <rect x="64" y="156" width="860" height="440" rx="8" fill="#131F24" stroke="#15803D" stroke-width="2.5" />
+  <rect x="64" y="156" width="860" height="48" rx="8" fill="#052E16" />
+  <text x="92" y="187" fill="#86EFAC" font-family="IBM Plex Mono, monospace" font-size="17" font-weight="700">WHEN TO REPORT INTERVALS // GTQI ≥ 65 (TIERS 1–3)</text>
+  <text x="92" y="242" fill="#FFFFFF" font-family="IBM Plex Sans, sans-serif" font-size="22" font-weight="700">Sub-Millimeter Cyan Overlay Matches Paper Ink</text>
+  <text x="92" y="284" fill="#CBD5E1" font-family="IBM Plex Sans, sans-serif" font-size="18">• Clean flatbed scans (Tier 1): SNR 19.14 dB, QT MAE 2.1 ms</text>
+  <text x="92" y="320" fill="#CBD5E1" font-family="IBM Plex Sans, sans-serif" font-size="18">• Handheld clipboard skew ±4.5° (Tier 2): SNR 15.36 dB, QT MAE 4.8 ms</text>
+  <text x="92" y="356" fill="#CBD5E1" font-family="IBM Plex Sans, sans-serif" font-size="18">• Uneven smartphone shadows (Tier 3): SNR 19.98 dB, QT MAE 1.8 ms</text>
+  <rect x="92" y="396" width="804" height="164" rx="6" fill="#091012" stroke="#1E3238" />
+  <path d="M 120 490 L 170 490 L 170 430 L 200 430 L 200 490 L 270 490 L 290 406 L 308 525 L 324 490 L 390 490 Q 425 445 460 490 L 560 490 L 580 406 L 598 525 L 614 490 L 860 490" fill="none" stroke="#00E5D1" stroke-width="3.5" />
+  <text x="120" y="544" fill="#86EFAC" font-family="IBM Plex Mono, monospace" font-size="15">VERIFIED OUTPUT: HR 72.3 BPM  |  QRS 88 ms  |  QT 378 ms  |  Bazett QTc 415 ms</text>
+
+  <rect x="996" y="156" width="860" height="440" rx="8" fill="#131F24" stroke="#BE123C" stroke-width="2.5" />
+  <rect x="996" y="156" width="860" height="48" rx="8" fill="#4C0519" />
+  <text x="1024" y="187" fill="#FDA4AF" font-family="IBM Plex Mono, monospace" font-size="17" font-weight="700">WHEN TO WITHHOLD // GTQI &lt; 65 (TIERS 4–5 &amp; BLANK GRID)</text>
+  <text x="1024" y="242" fill="#FFFFFF" font-family="IBM Plex Sans, sans-serif" font-size="22" font-weight="700">Refusing Unreliable Measurements Prevents Harm</text>
+  <text x="1024" y="284" fill="#CBD5E1" font-family="IBM Plex Sans, sans-serif" font-size="18">• Adjacent LVH lead R-wave collision &amp; crease (Tier 5: GTQI 40.6)</text>
+  <text x="1024" y="320" fill="#CBD5E1" font-family="IBM Plex Sans, sans-serif" font-size="18">• Severe 55% archival thermal ink fade (Tier 4: GTQI 60.4)</text>
+  <text x="1024" y="356" fill="#CBD5E1" font-family="IBM Plex Sans, sans-serif" font-size="18">• Blank thermal grid paper with zero ink (NEG-01: GTQI 38.0)</text>
+  <rect x="1024" y="396" width="804" height="164" rx="6" fill="#1F0910" stroke="#BE123C" />
+  <text x="1052" y="454" fill="#FDA4AF" font-family="IBM Plex Mono, monospace" font-size="24" font-weight="700">INTERVALS WITHHELD (GTQI 41/100 &lt; 65 GATE)</text>
+  <text x="1052" y="494" fill="#F8FAFC" font-family="IBM Plex Sans, sans-serif" font-size="17">Why: Ungated Tier 5 QT MAE jumps to 27.1 ms (up to 58 ms on colliding T-waves).</text>
+  <text x="1052" y="532" fill="#FDA4AF" font-family="IBM Plex Mono, monospace" font-size="15">Action: Locks HR/QRS/QT/QTc cards to WITHHELD &amp; boxes collision zone for clinician.</text>
+
+  <!-- Bottom Row: Who Benefits / Who Could Be Harmed / Next Month Plan -->
+  <rect x="64" y="632" width="1792" height="384" rx="8" fill="#131F24" stroke="#263E47" stroke-width="2" />
+  <text x="96" y="682" fill="#00E5D1" font-family="IBM Plex Mono, monospace" font-size="19" font-weight="700">ETHICAL SCOPE, LIMITATIONS &amp; NEXT-MONTH ROADMAP</text>
+
+  <text x="96" y="734" fill="#86EFAC" font-family="IBM Plex Sans, sans-serif" font-size="20" font-weight="700">1. Who Benefits:</text>
+  <text x="300" y="734" fill="#E2E8F0" font-family="IBM Plex Sans, sans-serif" font-size="19">Emergency/rural clinicians reviewing paper referral strips &amp; researchers digitizing paper ECG archives on CPU.</text>
+
+  <text x="96" y="790" fill="#FDA4AF" font-family="IBM Plex Sans, sans-serif" font-size="20" font-weight="700">2. Who Could Be Harmed:</text>
+  <text x="360" y="790" fill="#E2E8F0" font-family="IBM Plex Sans, sans-serif" font-size="19">Patients if an unverified QTc/QRS reading causes false reassurance (missed long-QT) or unnecessary referral.</text>
+
+  <text x="96" y="846" fill="#F59E0B" font-family="IBM Plex Sans, sans-serif" font-size="20" font-weight="700">3. Current Limitations:</text>
+  <text x="340" y="846" fill="#E2E8F0" font-family="IBM Plex Sans, sans-serif" font-size="19">Single-lead 2.5s strips; planar rotation (±5°); extreme &gt;3.2 mV PVCs (#119) require 5 mm/mV half-gain.</text>
+
+  <text x="96" y="902" fill="#00E5D1" font-family="IBM Plex Sans, sans-serif" font-size="20" font-weight="700">4. With Another Month:</text>
+  <text x="350" y="902" fill="#E2E8F0" font-family="IBM Plex Sans, sans-serif" font-size="19">Coupled 12-lead multi-row Viterbi tracking + prospective 200-chart hospital smartphone study vs. dual cardiologists.</text>
+
+  <text x="96" y="968" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="16">Public Repo: github.com/Georgefifth/tracegate   |   Live Demo: georgefifth.github.io/tracegate   |   Seed = 42</text>
+</svg>

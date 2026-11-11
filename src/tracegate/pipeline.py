@@ -114,8 +114,8 @@ def render_paper_ecg_image(
     duration_sec = n / float(fs_hz)
     total_mm_w = duration_sec * paper_speed_mm_s
     width = int(round(total_mm_w * px_per_mm))
-    height = int(round(30.0 * px_per_mm))  # 30 mm vertical strip height (-1.1 mV to +1.9 mV)
-    mid_y = height * 0.62
+    height = int(round(42.0 * px_per_mm))  # 42 mm vertical rhythm strip height (-2.1 mV to +2.1 mV)
+    mid_y = height * 0.52
     px_per_mv = px_per_mm * gain_mm_mv
 
     # Base thermal paper ivory color
@@ -160,16 +160,18 @@ def render_paper_ecg_image(
             draw.rectangle([stamp_x, stamp_y, stamp_x + 2, stamp_y + 10], fill=(24, 30, 34, 215))
             draw.rectangle([stamp_x + 5, stamp_y, stamp_x + 7, stamp_y + 10], fill=(24, 30, 34, 215))
 
-    # 3. Draw actual ECG carbon/thermal ink trace
+    # 3. Draw actual ECG carbon/thermal ink trace (with AC baseline centering if Holter DC offset > 0.25 mV)
     ink_alpha = 118 if tier == "tier4_faded" else 242
     ink_width = 2 if tier != "tier4_faded" else 1
+    dc_offset = float(np.median(reference_mv)) if abs(float(np.median(reference_mv))) > 0.25 else 0.0
+    plot_mv = reference_mv - dc_offset
     points: List[Tuple[float, float]] = []
     for x_px in range(width):
         sample_pos = (x_px / max(1, width - 1)) * (n - 1)
         i0 = int(math.floor(sample_pos))
         i1 = min(n - 1, i0 + 1)
         alpha = sample_pos - i0
-        mv = (1.0 - alpha) * reference_mv[i0] + alpha * reference_mv[i1]
+        mv = (1.0 - alpha) * plot_mv[i0] + alpha * plot_mv[i1]
         y_px = mid_y - mv * px_per_mv
         points.append((float(x_px), float(y_px)))
 
@@ -422,6 +424,7 @@ def extract_viterbi_dp(
     lum = 0.299 * rgb[:, :, 0] + 0.587 * rgb[:, :, 1] + 0.114 * rgb[:, :, 2]
     raw_contrast = float(np.percentile(lum, 90) - np.percentile(lum, 1))
     bg_nonuniformity = float(np.std(ndimage.uniform_filter(lum.astype(np.float32), size=(30, 40))))
+    ptp_mv = float(np.ptp(mv_smooth))
 
     stats = {
         "jump_fraction": jump_fraction,
@@ -429,6 +432,7 @@ def extract_viterbi_dp(
         "mean_ink_peak": mean_ink_peak,
         "raw_contrast": raw_contrast,
         "bg_nonuniformity": bg_nonuniformity,
+        "ptp_mv": ptp_mv,
     }
     return mv_smooth, path_y, stats
 
@@ -439,19 +443,31 @@ def delineate_fiducials_and_intervals(
 ) -> Dict[str, Any]:
     """
     Detect R-peaks, QRS onset/offset, and T-wave offset on a calibrated millivolt
-    ECG waveform (excluding the initial 0.25s 1 mV calibration pulse region).
+    ECG waveform (excluding an initial 0.24s 1 mV calibration pulse when present).
     """
     n = len(signal_mv)
-    start_idx = int(0.26 * fs_hz)
     work = signal_mv.copy()
-    work[:start_idx] = 0.0
+    cal_end = int(0.24 * fs_hz)
+    # Only mask initial 0.24s if a 1.0 mV rectangular calibration pulse is present
+    has_cal_pulse = (
+        n > cal_end
+        and float(np.median(work[int(0.07 * fs_hz) : int(0.18 * fs_hz)])) > 0.82
+        and float(np.std(work[int(0.08 * fs_hz) : int(0.17 * fs_hz)])) < 0.12
+    )
+    start_idx = int(0.25 * fs_hz) if has_cal_pulse else int(0.04 * fs_hz)
+    if has_cal_pulse:
+        work[:start_idx] = float(np.median(work[start_idx:]))
 
-    # Bandpass / derivative emphasis for R-peak detection
-    max_amp = float(np.percentile(work[start_idx:], 99)) if n > start_idx else 0.5
-    prominence = max(0.38, max_amp * 0.62)
-    min_dist = int(0.45 * fs_hz)
-    peaks, _ = signal.find_peaks(work, height=prominence, distance=min_dist)
-    peaks = [int(p) for p in peaks if p >= start_idx and p < n - int(0.15 * fs_hz)]
+    # Zero-median baseline & absolute excursion envelope for robust R-peak & PVC detection
+    baseline = float(np.median(work[start_idx:])) if n > start_idx else 0.0
+    centered = work - baseline
+    det_sig = np.abs(centered)
+
+    max_amp = float(np.percentile(det_sig[start_idx:], 99)) if n > start_idx else 0.5
+    prominence = max(0.35, max_amp * 0.62)
+    min_dist = int(0.42 * fs_hz)
+    peaks, _ = signal.find_peaks(det_sig, height=prominence, distance=min_dist)
+    peaks = [int(p) for p in peaks if p >= start_idx and p < n - int(0.12 * fs_hz)]
 
     r_peaks_ms: List[float] = []
     qrs_durations_ms: List[float] = []
@@ -554,6 +570,8 @@ def compute_gtqi(
     bg_nonunif = viterbi_stats.get("bg_nonuniformity", 4.0)
     jump_frac = viterbi_stats.get("jump_fraction", 0.0)
     dropout_frac = viterbi_stats.get("dropout_fraction", 0.0)
+    mean_ink = viterbi_stats.get("mean_ink_peak", 65.0)
+    ptp_mv = viterbi_stats.get("ptp_mv", 1.0)
 
     ink_contrast_score = int(
         np.clip(round((raw_contrast / 195.0) * 96.0 - bg_nonunif * 0.85), 28, 98)
@@ -564,6 +582,12 @@ def compute_gtqi(
     slew_score = int(
         np.clip(round(96.0 - jump_frac * 580.0 - dropout_frac * 160.0), 25, 97)
     )
+
+    # Guard against blank grid paper or absent ECG trace (Negative Control NEG-01)
+    if mean_ink < 14.0 or ptp_mv < 0.15 or dropout_frac > 0.65:
+        ink_contrast_score = min(ink_contrast_score, 18)
+        continuity_score = min(continuity_score, 20)
+        slew_score = min(slew_score, 16)
 
     if tier == "tier2_skewed":
         grid_periodicity_score = int(np.clip(grid_periodicity_score - 8, 65, 92))

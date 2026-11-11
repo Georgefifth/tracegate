@@ -737,7 +737,7 @@ export function App() {
               </div>
 
               {/* 5 Preset PhysioNet Distortion Tier Strips */}
-              <div className="strip-pills-row" role="list">
+              <div className="strip-pills-row" role="group" aria-label="Preset PhysioNet ECG Strips">
                 {strips.map((strip) => {
                   const isSelected = strip.id === currentStrip.id;
                   const stripPasses = strip.gtqi.overallScore >= gateThreshold;
@@ -745,7 +745,7 @@ export function App() {
                     <button
                       key={strip.id}
                       type="button"
-                      role="listitem"
+                      aria-pressed={isSelected}
                       className={`strip-pill ${isSelected ? 'active' : ''}`}
                       onClick={() => handleSelectStrip(strip)}
                     >
@@ -1493,17 +1493,7 @@ export function App() {
               </div>
 
               {/* Interactive GTQI Accuracy-Availability Trade-Off Explorer */}
-              <div
-                style={{
-                  padding: '16px',
-                  backgroundColor: '#faf9f5',
-                  borderBottom: '1px solid var(--border-hairline)',
-                  display: 'grid',
-                  gridTemplateColumns: 'minmax(260px, 1fr) minmax(0, 2fr)',
-                  gap: '18px',
-                  alignItems: 'center',
-                }}
-              >
+              <div className="benchmark-explorer-grid">
                 <div>
                   <label
                     htmlFor="benchmark-gate-slider"
@@ -1528,13 +1518,7 @@ export function App() {
                   />
                 </div>
 
-                <div
-                  className="intervals-grid"
-                  style={{
-                    padding: 0,
-                    gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
-                  }}
-                >
+                <div className="benchmark-cards-grid">
                   <div className="interval-box">
                     <div className="interval-label">
                       <span>Availability</span>

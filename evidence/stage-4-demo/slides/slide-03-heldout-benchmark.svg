@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#F6F4EE" />
+  <rect x="0" y="0" width="1920" height="110" fill="#11181C" />
+  <text x="64" y="46" fill="#00E5D1" font-family="IBM Plex Mono, monospace" font-size="18" font-weight="700" letter-spacing="2">SLIDE 03 // HELD-OUT PHYSIONET EVALUATION (SEED = 42)</text>
+  <text x="64" y="84" fill="#FFFFFF" font-family="IBM Plex Sans, sans-serif" font-size="34" font-weight="700">120 Held-Out Strips (24 Subjects) + 12 Real MIT-BIH Patient Recordings</text>
+
+  <!-- Top KPI Cards -->
+  <rect x="64" y="148" width="424" height="164" rx="8" fill="#FFFFFF" stroke="#007A78" stroke-width="2.5" />
+  <text x="92" y="188" fill="#4F5D65" font-family="IBM Plex Mono, monospace" font-size="15" font-weight="700">GATED VITERBI WAVEFORM SNR</text>
+  <text x="92" y="252" fill="#007A78" font-family="IBM Plex Mono, monospace" font-size="52" font-weight="700">18.16 dB</text>
+  <text x="92" y="288" fill="#4F5D65" font-family="IBM Plex Mono, monospace" font-size="16">95% CI [17.63–18.66] • RMSE 37.1 µV</text>
+
+  <rect x="520" y="148" width="424" height="164" rx="8" fill="#FFFFFF" stroke="#D6D3C9" stroke-width="2" />
+  <text x="548" y="188" fill="#4F5D65" font-family="IBM Plex Mono, monospace" font-size="15" font-weight="700">GATED QT INTERVAL MAE</text>
+  <text x="548" y="252" fill="#11181C" font-family="IBM Plex Mono, monospace" font-size="52" font-weight="700">2.9 ms</text>
+  <text x="548" y="288" fill="#15803D" font-family="IBM Plex Mono, monospace" font-size="16">95% CI [2.02–3.90] (vs 25.7 ms Argmax)</text>
+
+  <rect x="976" y="148" width="424" height="164" rx="8" fill="#FFFFFF" stroke="#D6D3C9" stroke-width="2" />
+  <text x="1004" y="188" fill="#4F5D65" font-family="IBM Plex Mono, monospace" font-size="15" font-weight="700">GATED QRS DURATION MAE</text>
+  <text x="1004" y="252" fill="#11181C" font-family="IBM Plex Mono, monospace" font-size="52" font-weight="700">3.5 ms</text>
+  <text x="1004" y="288" fill="#4F5D65" font-family="IBM Plex Mono, monospace" font-size="16">95% CI [3.19–3.94] • HR MAE 0.12 BPM</text>
+
+  <rect x="1432" y="148" width="424" height="164" rx="8" fill="#FFFFFF" stroke="#D6D3C9" stroke-width="2" />
+  <text x="1460" y="188" fill="#4F5D65" font-family="IBM Plex Mono, monospace" font-size="15" font-weight="700">REAL MIT-BIH PATIENT COHORT</text>
+  <text x="1460" y="252" fill="#007A78" font-family="IBM Plex Mono, monospace" font-size="52" font-weight="700">14.69 dB</text>
+  <text x="1460" y="288" fill="#15803D" font-family="IBM Plex Mono, monospace" font-size="16">r = 0.9419 (+8.64 dB over Argmax)</text>
+
+  <!-- Left Panel: Bar Chart by Distortion Tier -->
+  <rect x="64" y="344" width="900" height="670" rx="8" fill="#FFFFFF" stroke="#D6D3C9" stroke-width="2" />
+  <text x="96" y="392" fill="#11181C" font-family="IBM Plex Sans, sans-serif" font-size="23" font-weight="700">SNR (dB) Across 5 Paper Distortion Tiers (Viterbi vs. Argmax)</text>
+  <text x="96" y="422" fill="#4F5D65" font-family="IBM Plex Sans, sans-serif" font-size="15">Honest negative finding: Argmax matches Viterbi on pristine Tier 1 scans, but collapses on Tiers 2–5.</text>
+
+  <!-- Tier 1 Bars -->
+  <text x="96" y="476" fill="#11181C" font-family="IBM Plex Mono, monospace" font-size="15.5" font-weight="700">Tier 1: Clean 300 DPI</text>
+  <rect x="330" y="454" width="380" height="22" rx="3" fill="#007A78" />
+  <text x="720" y="471" fill="#007A78" font-family="IBM Plex Mono, monospace" font-size="14.5" font-weight="700">19.14 dB (QT 2.1ms)</text>
+  <rect x="330" y="480" width="408" height="18" rx="3" fill="#D97706" />
+  <text x="748" y="495" fill="#B45309" font-family="IBM Plex Mono, monospace" font-size="13.5">20.56 dB Argmax</text>
+
+  <!-- Tier 2 Bars -->
+  <text x="96" y="566" fill="#11181C" font-family="IBM Plex Mono, monospace" font-size="15.5" font-weight="700">Tier 2: Skewed (±4.5°)</text>
+  <rect x="330" y="544" width="305" height="22" rx="3" fill="#007A78" />
+  <text x="645" y="561" fill="#007A78" font-family="IBM Plex Mono, monospace" font-size="14.5" font-weight="700">15.36 dB (QT 4.8ms)</text>
+  <rect x="330" y="570" width="228" height="18" rx="3" fill="#D97706" />
+  <text x="568" y="585" fill="#B45309" font-family="IBM Plex Mono, monospace" font-size="13.5">11.47 dB (QT 13.4ms)</text>
+
+  <!-- Tier 3 Bars -->
+  <text x="96" y="656" fill="#11181C" font-family="IBM Plex Mono, monospace" font-size="15.5" font-weight="700">Tier 3: Phone Shadow</text>
+  <rect x="330" y="634" width="396" height="22" rx="3" fill="#007A78" />
+  <text x="736" y="651" fill="#007A78" font-family="IBM Plex Mono, monospace" font-size="14.5" font-weight="700">19.98 dB (QT 1.8ms)</text>
+  <rect x="330" y="660" width="262" height="18" rx="3" fill="#64748B" />
+  <text x="602" y="675" fill="#4F5D65" font-family="IBM Plex Mono, monospace" font-size="13.5">13.21 dB Centroid</text>
+
+  <!-- Tier 4 Bars -->
+  <text x="96" y="746" fill="#11181C" font-family="IBM Plex Mono, monospace" font-size="15.5" font-weight="700">Tier 4: Faded Ink (55%)</text>
+  <rect x="330" y="724" width="244" height="22" rx="3" fill="#007A78" />
+  <text x="584" y="741" fill="#007A78" font-family="IBM Plex Mono, monospace" font-size="14.5" font-weight="700">12.32 dB (QT 12.1ms)</text>
+  <rect x="330" y="750" width="69" height="18" rx="3" fill="#BE123C" />
+  <text x="409" y="765" fill="#BE123C" font-family="IBM Plex Mono, monospace" font-size="13.5" font-weight="700">3.47 dB Argmax (QT 81.3ms!)</text>
+
+  <!-- Tier 5 Bars -->
+  <text x="96" y="836" fill="#11181C" font-family="IBM Plex Mono, monospace" font-size="15.5" font-weight="700">Tier 5: Lead Collision</text>
+  <rect x="330" y="814" width="180" height="22" rx="3" fill="#BE123C" />
+  <text x="520" y="831" fill="#BE123C" font-family="IBM Plex Mono, monospace" font-size="14.5" font-weight="700">9.09 dB → GTQI 40.6 (WITHHELD)</text>
+  <rect x="330" y="840" width="60" height="18" rx="3" fill="#94A3B8" />
+  <text x="400" y="855" fill="#4F5D65" font-family="IBM Plex Mono, monospace" font-size="13.5">3.03 dB Argmax</text>
+
+  <rect x="96" y="896" width="836" height="90" rx="6" fill="#F0FDF4" stroke="#86EFAC" />
+  <text x="118" y="932" fill="#15803D" font-family="IBM Plex Sans, sans-serif" font-size="17" font-weight="700">Accuracy–Availability Trade-Off (Why Reporting Coverage Matters):</text>
+  <text x="118" y="964" fill="#11181C" font-family="IBM Plex Mono, monospace" font-size="15">Ungated (100% cov): QT MAE = 9.6 ms  →  Gated GTQI ≥ 65 (60% cov): QT MAE = 2.9 ms</text>
+
+  <!-- Right Panel: Accuracy-Availability Table & Real MIT-BIH Highlights -->
+  <rect x="996" y="344" width="860" height="670" rx="8" fill="#FFFFFF" stroke="#D6D3C9" stroke-width="2" />
+  <text x="1028" y="392" fill="#11181C" font-family="IBM Plex Sans, sans-serif" font-size="23" font-weight="700">GTQI Reliability Gate Curve &amp; Real MIT-BIH Validation</text>
+
+  <text x="1028" y="446" fill="#4F5D65" font-family="IBM Plex Mono, monospace" font-size="15" font-weight="700">GATE THRESHOLD   COVERAGE (%)    SNR (dB)    RMSE (µV)   QRS MAE    QT MAE</text>
+  <line x1="1028" y1="460" x2="1824" y2="460" stroke="#D6D3C9" stroke-width="1.5" />
+  <text x="1028" y="494" fill="#11181C" font-family="IBM Plex Mono, monospace" font-size="16">GTQI ≥ 0  (All)   100.0% (120)   15.18 dB    57.0 µV     3.9 ms     9.6 ms</text>
+  <text x="1028" y="532" fill="#11181C" font-family="IBM Plex Mono, monospace" font-size="16">GTQI ≥ 55         80.0%  (96)    16.70 dB    45.4 µV     3.2 ms     5.2 ms</text>
+  <rect x="1020" y="548" width="812" height="34" rx="4" fill="#E6F4F3" />
+  <text x="1028" y="571" fill="#007A78" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="700">GTQI ≥ 65 (Def)   60.0%  (72)    18.16 dB    37.1 µV     3.5 ms     2.9 ms</text>
+  <text x="1028" y="610" fill="#11181C" font-family="IBM Plex Mono, monospace" font-size="16">GTQI ≥ 75         41.7%  (50)    18.27 dB    35.6 µV     3.4 ms     3.3 ms</text>
+  <text x="1028" y="648" fill="#11181C" font-family="IBM Plex Mono, monospace" font-size="16">GTQI ≥ 85         20.0%  (24)    19.14 dB    32.1 µV     3.0 ms     2.1 ms</text>
+
+  <line x1="1028" y1="680" x2="1824" y2="680" stroke="#D6D3C9" stroke-width="1.5" />
+  <text x="1028" y="720" fill="#11181C" font-family="IBM Plex Sans, sans-serif" font-size="20" font-weight="700">Stage 3.5 External PhysioNet MIT-BIH Findings (16 Cases):</text>
+  <text x="1028" y="758" fill="#15803D" font-family="IBM Plex Mono, monospace" font-size="15.5" font-weight="600">• MIT-BIH #112 (Shadow + -0.98mV DC): Viterbi 19.58 dB vs Argmax -8.74 dB</text>
+  <text x="1028" y="792" fill="#15803D" font-family="IBM Plex Mono, monospace" font-size="15.5" font-weight="600">• MIT-BIH #200 (Multiform PVCs): Viterbi 19.76 dB (r=0.9957) vs Argmax -2.38 dB</text>
+  <text x="1028" y="826" fill="#15803D" font-family="IBM Plex Mono, monospace" font-size="15.5" font-weight="600">• ADV-01 (Top Barcode Stamp): Viterbi 19.88 dB vs Argmax -11.00 dB (+30.9 dB)</text>
+  <text x="1028" y="860" fill="#15803D" font-family="IBM Plex Mono, monospace" font-size="15.5" font-weight="600">• NEG-01 (Blank Grid Paper): GTQI = 38/100 → Strictly WITHHELD</text>
+  <text x="1028" y="894" fill="#B45309" font-family="IBM Plex Mono, monospace" font-size="15.5" font-weight="600">• Boundary (#119): 4.32 mV PVC exceeds 10 mm/mV height (requires 5 mm/mV)</text>
+  <text x="1028" y="928" fill="#B45309" font-family="IBM Plex Mono, monospace" font-size="15.5" font-weight="600">• Boundary (#117): Giant hyperacute T-wave requires visual oscilloscope check</text>
+</svg>

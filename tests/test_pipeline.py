@@ -69,6 +69,20 @@ def test_tier5_collision_triggers_gtqi_safety_gate():
     assert "WITHHELD" in res["gtqi"]["withholdReason"]
 
 
+def test_blank_grid_negative_control_withheld():
+    """Regression test for Stage 3.5 NEG-01: Blank thermal grid paper with zero ink must be withheld (GTQI < 65)."""
+    strip = generate_physiological_ecg_strip(hr_bpm=72.0, seed=801)
+    rgb, meta = render_paper_ecg_image(strip["reference_mv"], tier="tier1_clean", seed=801)
+    rgb[:, :, :] = 246
+    rgb[:, ::12, :] = [217, 107, 82]
+    rgb[::12, :, :] = [217, 107, 82]
+    res = digitize_paper_ecg_array(
+        rgb, strip["reference_mv"], strip["true_intervals"], meta, gate_threshold=65
+    )
+    assert res["gtqi"]["overallScore"] < 65
+    assert res["gtqi"]["passed"] is False
+
+
 def test_determinism_on_repeated_inference():
     """Regression test for Open-ECG-Digitizer Issue #48: repeated runs on the same image must be 100% deterministic."""
     strip = generate_physiological_ecg_strip(hr_bpm=75.0, seed=123)

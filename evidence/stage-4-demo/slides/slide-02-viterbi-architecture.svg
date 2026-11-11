@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#0D1518" />
+  <rect x="0" y="0" width="1920" height="110" fill="#131F24" />
+  <text x="64" y="46" fill="#00E5D1" font-family="IBM Plex Mono, monospace" font-size="18" font-weight="700" letter-spacing="2">SLIDE 02 // MATHEMATICAL SIGNAL RECOVERY PIPELINE</text>
+  <text x="64" y="84" fill="#FFFFFF" font-family="IBM Plex Sans, sans-serif" font-size="34" font-weight="700">Four-Stage Deterministic 2D-to-1D ECG Waveform Reconstruction</text>
+
+  <!-- Stage 1 -->
+  <rect x="64" y="160" width="860" height="390" rx="8" fill="#131F24" stroke="#263E47" stroke-width="2" />
+  <text x="96" y="210" fill="#00E5D1" font-family="IBM Plex Mono, monospace" font-size="20" font-weight="700">STAGE 01 // SPECTRAL GRID CALIBRATION &amp; DESKEW</text>
+  <text x="96" y="254" fill="#E2E8F0" font-family="IBM Plex Sans, sans-serif" font-size="20">Isolates terracotta red-minus-green grid channel G(x,y) = max(0, R - G)</text>
+  <text x="96" y="292" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="17">• Column Autocorrelation Peak → Physical Pitch (px/mm)</text>
+  <text x="96" y="328" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="17">• Radon Projection Variance over θ ∈ [-5°, +5°] → Deskew Angle</text>
+  <text x="96" y="364" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="17">• Physical Scale Lock: 25 mm/s (40 ms/mm) &amp; 10 mm/mV (100 µV/mm)</text>
+  <rect x="96" y="400" width="796" height="116" rx="6" fill="#091012" stroke="#1E3238" />
+  <text x="116" y="446" fill="#F59E0B" font-family="IBM Plex Mono, monospace" font-size="16">Δt_sample = 1 / 250 Hz = 4.0 ms  |  ΔV_pixel = 1 / (px_per_mm × 10) mV</text>
+  <text x="116" y="486" fill="#00E5D1" font-family="IBM Plex Mono, monospace" font-size="15.5">AC Baseline Filter: Centers Holter DC Offset (&gt;0.25 mV) to Midline</text>
+
+  <!-- Stage 2 -->
+  <rect x="996" y="160" width="860" height="390" rx="8" fill="#131F24" stroke="#263E47" stroke-width="2" />
+  <text x="1028" y="210" fill="#00E5D1" font-family="IBM Plex Mono, monospace" font-size="20" font-weight="700">STAGE 02 // LOCAL ILLUMINATION &amp; CHROMATIC SEPARATION</text>
+  <text x="1028" y="254" fill="#E2E8F0" font-family="IBM Plex Sans, sans-serif" font-size="20">Suppresses uneven smartphone shadows and terracotta 1mm/5mm grid lines</text>
+  <text x="1028" y="292" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="17">• 25×35 Uniform Background Luminance Filter B(x,y) removes shadows</text>
+  <text x="1028" y="328" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="17">• Redness Suppression: R_grid(x,y) = max(0, R - 0.5·(G + B))</text>
+  <text x="1028" y="364" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="17">• Carbon Ink Likelihood Matrix I_ink(x,y) isolates broadband ink absorption</text>
+  <rect x="1028" y="400" width="796" height="116" rx="6" fill="#091012" stroke="#1E3238" />
+  <text x="1052" y="446" fill="#00E5D1" font-family="IBM Plex Mono, monospace" font-size="18">I_ink(x,y) = max(0,  2.2·[B(x,y) - L(x,y)] - 0.45·max(0, R - 0.5(G+B)))</text>
+  <text x="1052" y="486" fill="#86EFAC" font-family="IBM Plex Mono, monospace" font-size="18">Result: +28.3 dB SNR gain on MIT-BIH #112 Smartphone Shadow Strip</text>
+
+  <!-- Stage 3 -->
+  <rect x="64" y="590" width="860" height="420" rx="8" fill="#131F24" stroke="#007A78" stroke-width="2.5" />
+  <text x="96" y="640" fill="#00E5D1" font-family="IBM Plex Mono, monospace" font-size="20" font-weight="700">STAGE 03 // GLOBAL VITERBI DP CONTINUITY TRACKER</text>
+  <text x="96" y="684" fill="#E2E8F0" font-family="IBM Plex Sans, sans-serif" font-size="20">Solves exact global dynamic programming path across all columns x = 1..W</text>
+  <text x="96" y="724" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="17">• Huber Slew Penalty: Quadratic for small jitter, linear for steep R-upstrokes</text>
+  <text x="96" y="760" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="17">• Sub-Pixel Parabolic Refinement around integer Viterbi path y*(x)</text>
+  <text x="96" y="796" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="17">• Ignores isolated text labels ("II", "V2") &amp; top barcode headers (+30.9 dB)</text>
+  <rect x="96" y="836" width="796" height="136" rx="6" fill="#091012" stroke="#1E3238" />
+  <text x="120" y="882" fill="#00E5D1" font-family="IBM Plex Mono, monospace" font-size="17">DP[y, x] = -2.4·I_ink(x,y) + min_Δy [ DP[y+Δy, x-1] + Φ_Huber(Δy) ]</text>
+  <text x="120" y="922" fill="#F59E0B" font-family="IBM Plex Mono, monospace" font-size="17">Φ_Huber(Δy) = 1.8·min(|Δy|, 4)² + 1.15·max(0, |Δy| - 4)</text>
+  <text x="120" y="954" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="15">Preserves 1.8 mV R-wave apex without corner clipping (SNR: 1.66 dB → 18.16 dB)</text>
+
+  <!-- Stage 4 -->
+  <rect x="996" y="590" width="860" height="420" rx="8" fill="#131F24" stroke="#263E47" stroke-width="2" />
+  <text x="1028" y="640" fill="#00E5D1" font-family="IBM Plex Mono, monospace" font-size="20" font-weight="700">STAGE 04 // GTQI SAFETY GATE &amp; PARABOLIC FIDUCIALS</text>
+  <text x="1028" y="684" fill="#E2E8F0" font-family="IBM Plex Sans, sans-serif" font-size="20">Withholds intervals when trace quality cannot support clinical measurement</text>
+  <text x="1028" y="724" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="17">• GTQI = 0.25·Grid + 0.25·Contrast + 0.30·Continuity + 0.20·Slew</text>
+  <text x="1028" y="760" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="17">• Blank-Grid &amp; Asystole Guard: Requires mean_ink ≥ 14 &amp; ptp ≥ 0.15 mV</text>
+  <text x="1028" y="796" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="17">• Parabolic Q/R/S/T Delineation: HR (BPM), RR, PR, QRS, QT, Bazett QTc (ms)</text>
+  <rect x="1028" y="836" width="796" height="136" rx="6" fill="#091012" stroke="#1E3238" />
+  <text x="1048" y="882" fill="#86EFAC" font-family="IBM Plex Mono, monospace" font-size="16">IF GTQI ≥ 65 → Report Verified Intervals (QT MAE = 2.9 ms [2.02–3.90])</text>
+  <text x="1048" y="920" fill="#FDA4AF" font-family="IBM Plex Mono, monospace" font-size="16">IF GTQI &lt; 65 → WITHHOLD Intervals &amp; Box Collision Region</text>
+  <text x="1048" y="954" fill="#94A3B8" font-family="IBM Plex Mono, monospace" font-size="14.5">Eliminates false long-QT alerts on Tier 5 colliding leads (100% neg control pass)</text>
+</svg>

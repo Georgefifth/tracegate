@@ -665,6 +665,24 @@ select:focus-visible {
   color: var(--warn-fg);
 }
 
+/* Benchmark Explorer Responsive Grid */
+.benchmark-explorer-grid {
+  padding: 16px;
+  background-color: #faf9f5;
+  border-bottom: 1px solid var(--border-hairline);
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(0, 2fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.benchmark-cards-grid {
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
 /* Responsive Mobile 390px Layout */
 @media (max-width: 1024px) {
   .instrument-grid {
@@ -675,6 +693,9 @@ select:focus-visible {
   }
   .calibration-controls-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .benchmark-explorer-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -707,6 +728,9 @@ select:focus-visible {
     grid-template-columns: 1fr;
   }
   .intervals-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .benchmark-cards-grid {
     grid-template-columns: 1fr 1fr;
   }
 }

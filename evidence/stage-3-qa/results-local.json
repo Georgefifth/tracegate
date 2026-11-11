@@ -1,0 +1,202 @@
+{
+  "base": "http://127.0.0.1:4389/",
+  "browser": "firefox",
+  "headed": false,
+  "startedAt": "2026-11-11T13:57:58.457Z",
+  "finishedAt": "2026-11-11T13:58:13.549Z",
+  "summary": {
+    "total": 14,
+    "pass": 14,
+    "fail": 0
+  },
+  "results": [
+    {
+      "viewport": "desktop",
+      "id": "S1-first-visit-and-empty",
+      "title": "First visit, clinical disclaimer, responsive overflow check, and actionable empty state recovery",
+      "status": "pass",
+      "ms": 1102,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/S1-first-visit-and-empty-landing-desktop.png",
+        "evidence/stage-3-qa/screens/S1-first-visit-and-empty-empty-state-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "S2-core-digitization-e2e",
+      "title": "Core task end-to-end: Select skewed strip, compare algorithms, run calibrated digitization, and export CSV",
+      "status": "pass",
+      "ms": 1077,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/S2-core-digitization-e2e-digitized-tier2-desktop.png",
+        "evidence/stage-3-qa/screens/S2-core-digitization-e2e-csv-exported-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "S3-safety-gate-withheld",
+      "title": "Clinical safety gate: Severe lead collision & crease (Tier 5) withholds QRS/QT/QTc intervals",
+      "status": "pass",
+      "ms": 740,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/S3-safety-gate-withheld-withheld-gate-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "S4-invalid-input-and-recovery",
+      "title": "Invalid calibration scale validation & one-click recovery",
+      "status": "pass",
+      "ms": 810,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/S4-invalid-input-and-recovery-invalid-input-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "S5-custom-image-upload",
+      "title": "Custom paper ECG image upload (PNG) & real 2D pixel matrix digitization",
+      "status": "pass",
+      "ms": 749,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/S5-custom-image-upload-custom-upload-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "S6-benchmark-and-methodology-nav",
+      "title": "Navigation across Held-Out Benchmark (120 strips) & Methodology views + reload check",
+      "status": "pass",
+      "ms": 1452,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/S6-benchmark-and-methodology-nav-benchmark-view-desktop.png",
+        "evidence/stage-3-qa/screens/S6-benchmark-and-methodology-nav-methodology-view-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "S7-keyboard-and-a11y",
+      "title": "Keyboard navigation, focus visibility, labeled controls, and canvas accessibility",
+      "status": "pass",
+      "ms": 648,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/S7-keyboard-and-a11y-a11y-focus-desktop.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "S1-first-visit-and-empty",
+      "title": "First visit, clinical disclaimer, responsive overflow check, and actionable empty state recovery",
+      "status": "pass",
+      "ms": 1009,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/S1-first-visit-and-empty-landing-mobile.png",
+        "evidence/stage-3-qa/screens/S1-first-visit-and-empty-empty-state-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "S2-core-digitization-e2e",
+      "title": "Core task end-to-end: Select skewed strip, compare algorithms, run calibrated digitization, and export CSV",
+      "status": "pass",
+      "ms": 1124,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/S2-core-digitization-e2e-digitized-tier2-mobile.png",
+        "evidence/stage-3-qa/screens/S2-core-digitization-e2e-csv-exported-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "S3-safety-gate-withheld",
+      "title": "Clinical safety gate: Severe lead collision & crease (Tier 5) withholds QRS/QT/QTc intervals",
+      "status": "pass",
+      "ms": 769,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/S3-safety-gate-withheld-withheld-gate-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "S4-invalid-input-and-recovery",
+      "title": "Invalid calibration scale validation & one-click recovery",
+      "status": "pass",
+      "ms": 838,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/S4-invalid-input-and-recovery-invalid-input-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "S5-custom-image-upload",
+      "title": "Custom paper ECG image upload (PNG) & real 2D pixel matrix digitization",
+      "status": "pass",
+      "ms": 805,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/S5-custom-image-upload-custom-upload-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "S6-benchmark-and-methodology-nav",
+      "title": "Navigation across Held-Out Benchmark (120 strips) & Methodology views + reload check",
+      "status": "pass",
+      "ms": 1472,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/S6-benchmark-and-methodology-nav-benchmark-view-mobile.png",
+        "evidence/stage-3-qa/screens/S6-benchmark-and-methodology-nav-methodology-view-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "S7-keyboard-and-a11y",
+      "title": "Keyboard navigation, focus visibility, labeled controls, and canvas accessibility",
+      "status": "pass",
+      "ms": 690,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/S7-keyboard-and-a11y-a11y-focus-mobile.png"
+      ]
+    }
+  ]
+}

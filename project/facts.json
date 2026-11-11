@@ -1,0 +1,59 @@
+{
+  "project_name": "TraceGate",
+  "last_updated": "2026-11-11",
+  "facts": [
+    {
+      "fact_id": "fact_viterbi_gated_snr",
+      "claim": "Gated Viterbi dynamic-programming trace tracker achieves 18.16 dB SNR (95% CI 17.63–18.66 dB) and 37.1 uV RMSE at 60.0% availability on the 120-strip held-out PhysioNet benchmark",
+      "status": "verified",
+      "evidence": [
+        "public/images/slide-03-heldout-benchmark.svg",
+        "public/footage/live_workbench_demo.mp4"
+      ],
+      "allowed_in_video": true
+    },
+    {
+      "fact_id": "fact_interval_mae",
+      "claim": "Gated Viterbi recovery achieves 2.9 ms QT MAE (95% CI 2.02–3.90 ms), 3.5 ms QRS MAE, and 0.12 BPM Heart Rate MAE versus 25.7 ms QT MAE for Naive Column-Argmax",
+      "status": "verified",
+      "evidence": [
+        "public/images/slide-03-heldout-benchmark.svg",
+        "public/images/slide-02-viterbi-architecture.svg"
+      ],
+      "allowed_in_video": true
+    },
+    {
+      "fact_id": "fact_real_mitbih_validation",
+      "claim": "Across 12 real PhysioNet MIT-BIH patient recordings, TraceGate achieves 14.69 dB mean SNR (r = 0.9419), outperforming Naive Column-Argmax (6.05 dB) by +8.64 dB",
+      "status": "verified",
+      "evidence": [
+        "public/images/slide-03-heldout-benchmark.svg",
+        "public/images/slide-04-gtqi-safety-gate.svg"
+      ],
+      "allowed_in_video": true
+    },
+    {
+      "fact_id": "fact_gtqi_safety_gate",
+      "claim": "The Grid and Trace Quality Index (GTQI < 65) automatically withholds QRS, QT, and QTc intervals on severe lead collisions (Tier 5, mean GTQI 40.6) and blank thermal grids (GTQI 38.0)",
+      "status": "verified",
+      "evidence": [
+        "public/footage/live_safety_gate_demo.mp4",
+        "public/images/slide-04-gtqi-safety-gate.svg"
+      ],
+      "allowed_in_video": true
+    },
+    {
+      "fact_id": "fact_unverified_fda_clearance",
+      "claim": "FDA 510(k) cleared autonomous clinical diagnosis device",
+      "status": "unverified",
+      "evidence": [],
+      "allowed_in_video": false,
+      "forbidden_phrases": [
+        "fda 510(k) cleared",
+        "autonomous clinical diagnosis",
+        "replaces a cardiologist",
+        "certified medical device"
+      ]
+    }
+  ]
+}
