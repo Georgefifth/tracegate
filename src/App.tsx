@@ -55,7 +55,7 @@ export function App() {
   // Check if Python FastAPI backend or static verified benchmark JSON is reachable
   useEffect(() => {
     let cancelled = false;
-    fetch('/api/health.json')
+    fetch('./api/health.json')
       .then((res) => {
         if (!res.ok) throw new Error('Backend HTTP not ok');
         return res.json();
@@ -63,7 +63,7 @@ export function App() {
       .then((data) => {
         if (!cancelled && data && data.status === 'ok') {
           setBackendStatus(data.mode === 'fastapi' ? 'connected' : 'local_dsp');
-          return fetch('/api/benchmark.json')
+          return fetch('./api/benchmark.json')
             .then((r) => (r.ok ? r.json() : null))
             .then((bm) => {
               if (!cancelled && bm && bm.datasetName) {
@@ -654,7 +654,7 @@ export function App() {
       {/* Main Instrument Header */}
       <header className="instrument-header">
         <div className="brand-cluster">
-          <img src="/logo.svg" alt="TraceGate calibration reticle logo" className="brand-logo" />
+          <img src="./logo.svg" alt="TraceGate calibration reticle logo" className="brand-logo" />
           <div>
             <h1 className="brand-title">
               TraceGate
