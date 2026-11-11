@@ -1,0 +1,26 @@
+{
+  "name": "tracegate",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TraceGate: Calibrated Paper-ECG Digitizer, Visual Registration Overlay, and Quality-Gated Clinical Interval Verification Workbench",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test:py": ".venv/bin/pytest tests/ -v",
+    "evaluate": ".venv/bin/python scripts/run_evaluation.py"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "playwright": "^1.58.2",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}

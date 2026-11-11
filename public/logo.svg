@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="TraceGate Logo">
+  <defs>
+    <clipPath id="leftPaper">
+      <rect x="8" y="8" width="50" height="104" rx="8" />
+    </clipPath>
+    <clipPath id="rightScope">
+      <rect x="58" y="8" width="54" height="104" rx="8" />
+    </clipPath>
+  </defs>
+  <!-- Left Half: Archival ECG Thermal Paper with 5mm/1mm Terracotta Grid -->
+  <rect x="8" y="8" width="104" height="104" rx="10" fill="#F6F4EE" stroke="#11181C" stroke-width="3" />
+  <g clip-path="url(#leftPaper)">
+    <g stroke="#D96B52" stroke-opacity="0.32" stroke-width="1">
+      <line x1="18" y1="8" x2="18" y2="112" />
+      <line x1="28" y1="8" x2="28" y2="112" />
+      <line x1="38" y1="8" x2="38" y2="112" />
+      <line x1="48" y1="8" x2="48" y2="112" />
+      <line x1="8" y1="20" x2="60" y2="20" />
+      <line x1="8" y1="30" x2="60" y2="30" />
+      <line x1="8" y1="40" x2="60" y2="40" />
+      <line x1="8" y1="50" x2="60" y2="50" />
+      <line x1="8" y1="60" x2="60" y2="60" />
+      <line x1="8" y1="70" x2="60" y2="70" />
+      <line x1="8" y1="80" x2="60" y2="80" />
+      <line x1="8" y1="90" x2="60" y2="90" />
+      <line x1="8" y1="100" x2="60" y2="100" />
+    </g>
+    <!-- 1 mV Calibration Square Pulse + P-Wave on Paper Ink -->
+    <path d="M 12 72 L 18 72 L 18 44 L 27 44 L 27 72 L 35 72 Q 40 62 45 72 L 53 72 L 58 80" fill="none" stroke="#1A2125" stroke-width="3.2" stroke-linecap="square" stroke-linejoin="miter" />
+  </g>
+  <!-- Right Half: Cathode Oscilloscope Viewport with Calibrated Cyan QRS-T Trace -->
+  <g clip-path="url(#rightScope)">
+    <rect x="58" y="8" width="54" height="104" fill="#0D1518" />
+    <g stroke="#1E3238" stroke-width="1">
+      <line x1="68" y1="8" x2="68" y2="112" />
+      <line x1="88" y1="8" x2="88" y2="112" />
+      <line x1="108" y1="8" x2="108" y2="112" />
+      <line x1="58" y1="30" x2="112" y2="30" />
+      <line x1="58" y1="50" x2="112" y2="50" />
+      <line x1="58" y1="70" x2="112" y2="70" />
+      <line x1="58" y1="90" x2="112" y2="90" />
+    </g>
+    <!-- Digitized Cyan QRS-T Complex + Fiducial Nodes -->
+    <path d="M 58 80 L 65 20 L 72 94 L 78 72 L 85 72 Q 93 52 101 72 L 108 72" fill="none" stroke="#00E5D1" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="65" cy="20" r="3.5" fill="#F59E0B" stroke="#0D1518" stroke-width="1.2" />
+    <circle cx="101" cy="72" r="3" fill="#00E5D1" />
+  </g>
+  <!-- Center Gate Reticle Divider (The "Gate" in TraceGate) -->
+  <line x1="58" y1="8" x2="58" y2="112" stroke="#007A78" stroke-width="3" />
+  <rect x="52" y="12" width="12" height="6" rx="2" fill="#007A78" />
+  <rect x="52" y="102" width="12" height="6" rx="2" fill="#007A78" />
+  <!-- Outer Frame -->
+  <rect x="8" y="8" width="104" height="104" rx="10" fill="none" stroke="#11181C" stroke-width="3" />
+</svg>

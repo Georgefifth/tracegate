@@ -1,0 +1,712 @@
+:root {
+  --bg-chassis: #f6f4ee;
+  --bg-surface: #ffffff;
+  --bg-surface-subtle: #efece4;
+  --bg-scope: #0d1518;
+  --bg-scope-panel: #131f24;
+  --border-hairline: #d6d3c9;
+  --border-strong: #949d9f;
+  --text-primary: #11181c;
+  --text-secondary: #4f5d65;
+  --text-muted: #68767e;
+  --accent-primary: #007a78;
+  --accent-primary-hover: #005f5d;
+  --accent-cyan: #00e5d1;
+  --accent-amber: #d97706;
+  --accent-terracotta: #d96b52;
+  --pass-fg: #15803d;
+  --pass-bg: #dcfce7;
+  --pass-border: #86efac;
+  --warn-fg: #b45309;
+  --warn-bg: #fef3c7;
+  --warn-border: #fcd34d;
+  --danger-fg: #be123c;
+  --danger-bg: #ffe4e6;
+  --danger-border: #fda4af;
+  --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-chassis);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Top Clinical Research Disclaimer Bar */
+.clinical-disclaimer-bar {
+  background-color: #11181c;
+  color: #e2e8f0;
+  font-size: 12px;
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #28353c;
+}
+
+.clinical-disclaimer-tag {
+  background-color: var(--accent-terracotta);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+/* Main Instrument Header */
+.instrument-header {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-hairline);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand-cluster {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+.brand-title {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-version {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-primary);
+  background: #e6f4f3;
+  border: 1px solid #99d5d3;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+.brand-subtitle {
+  margin: 2px 0 0 0;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+}
+
+/* Navigation Tabs (1 Primary View Switcher) */
+.view-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--bg-surface-subtle);
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid var(--border-hairline);
+}
+
+.view-tab-btn {
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 100ms ease, color 100ms ease;
+}
+
+.view-tab-btn:hover {
+  color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.view-tab-btn.active {
+  background-color: var(--bg-surface);
+  color: var(--accent-primary);
+  border-color: var(--border-hairline);
+  box-shadow: 0 1px 2px rgba(17, 24, 28, 0.06);
+}
+
+.view-tab-btn:focus-visible,
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.strip-pill:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Primary & Secondary Action Buttons (min 44px height) */
+.btn-primary {
+  min-height: 44px;
+  padding: 0 18px;
+  background-color: var(--accent-primary);
+  color: #ffffff;
+  border: 1px solid #005c5a;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 100ms ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--accent-primary-hover);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  min-height: 44px;
+  padding: 0 13px;
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-hairline);
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--bg-surface-subtle);
+  border-color: var(--border-strong);
+}
+
+.btn-secondary.active {
+  background-color: #e6f4f3;
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  font-weight: 600;
+}
+
+/* Main Workbench Container */
+.workbench-shell {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 16px 20px 36px;
+}
+
+/* Strip Selector Bar */
+.strip-selector-bar {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.strip-selector-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.section-kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+}
+
+.strip-pills-row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.strip-pill {
+  min-height: 54px;
+  padding: 8px 10px;
+  text-align: left;
+  background-color: var(--bg-chassis);
+  border: 1px solid var(--border-hairline);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+  transition: border-color 100ms ease, background-color 100ms ease;
+}
+
+.strip-pill:hover {
+  border-color: var(--border-strong);
+  background-color: #faf9f5;
+}
+
+.strip-pill.active {
+  background-color: #e6f4f3;
+  border-color: var(--accent-primary);
+  box-shadow: inset 3px 0 0 var(--accent-primary);
+}
+
+.strip-pill-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  width: 100%;
+}
+
+.strip-pill-id {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.strip-pill-tier {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge-pill {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.badge-pass {
+  background-color: var(--pass-bg);
+  color: var(--pass-fg);
+  border: 1px solid var(--pass-border);
+}
+
+.badge-warn {
+  background-color: var(--warn-bg);
+  color: var(--warn-fg);
+  border: 1px solid var(--warn-border);
+}
+
+.badge-danger {
+  background-color: var(--danger-bg);
+  color: var(--danger-fg);
+  border: 1px solid var(--danger-border);
+}
+
+/* Workbench 2-Column Instrument Grid */
+.instrument-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(340px, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.panel-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-hairline);
+  background-color: #faf9f5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.panel-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Dual-Layer Registration Canvas Well */
+.registration-well {
+  background-color: var(--bg-scope);
+  color: #f1f5f9;
+  padding: 12px;
+  border-bottom: 1px solid #223238;
+}
+
+.canvas-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.canvas-legend {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: #cbd5e1;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.canvas-stage-wrapper {
+  position: relative;
+  width: 100%;
+  border: 1px solid #2b4149;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #f8f4ec;
+}
+
+.ecg-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: crosshair;
+}
+
+.scope-canvas-wrapper {
+  margin-top: 10px;
+  border: 1px solid #263940;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #0b1215;
+}
+
+.caliper-readout-strip {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: var(--bg-scope-panel);
+  border: 1px solid #263a42;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+/* Control Strip for Calibration & Algorithm Selection */
+.calibration-controls-grid {
+  padding: 12px 14px;
+  display: grid;
+  grid-template-columns: 1.72fr 0.72fr 0.72fr 1.08fr;
+  gap: 10px;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.control-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.control-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.control-input {
+  min-height: 44px;
+  padding: 6px 10px;
+  border: 1px solid var(--border-hairline);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background-color: var(--bg-chassis);
+  color: var(--text-primary);
+}
+
+/* Right Column: GTQI Gate & Clinical Intervals */
+.telemetry-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.gtqi-banner {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.gtqi-banner.passed {
+  background-color: #f0fdf4;
+}
+
+.gtqi-banner.withheld {
+  background-color: #fff1f2;
+}
+
+.gtqi-score-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.gtqi-big-score {
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.gtqi-subbars {
+  padding: 12px 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.subbar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.subbar-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+
+.subbar-track {
+  height: 6px;
+  background-color: var(--bg-surface-subtle);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.subbar-fill {
+  height: 100%;
+  background-color: var(--accent-primary);
+}
+
+/* Clinical Intervals Grid */
+.intervals-grid {
+  padding: 12px 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.interval-box {
+  padding: 10px 12px;
+  background-color: var(--bg-chassis);
+  border: 1px solid var(--border-hairline);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.interval-box.withheld-box {
+  background-color: #fff1f2;
+  border-color: var(--danger-border);
+}
+
+.interval-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: flex;
+  justify-content: space-between;
+}
+
+.interval-value {
+  font-family: var(--font-mono);
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.interval-ref {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Method Comparison Table */
+.data-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.clinical-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.clinical-table th,
+.clinical-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-hairline);
+  text-align: left;
+}
+
+.clinical-table th {
+  background-color: #faf9f5;
+  font-weight: 700;
+  color: var(--text-secondary);
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+}
+
+.clinical-table tr.active-row {
+  background-color: #e6f4f3;
+}
+
+/* Status Banners for Empty / Loading / Error / Invalid Input */
+.state-callout {
+  padding: 18px 20px;
+  border-radius: 6px;
+  border: 1px solid var(--border-hairline);
+  background-color: var(--bg-surface);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.state-callout.error-state {
+  background-color: var(--danger-bg);
+  border-color: var(--danger-border);
+  color: var(--danger-fg);
+}
+
+.state-callout.warn-state {
+  background-color: var(--warn-bg);
+  border-color: var(--warn-border);
+  color: var(--warn-fg);
+}
+
+/* Responsive Mobile 390px Layout */
+@media (max-width: 1024px) {
+  .instrument-grid {
+    grid-template-columns: 1fr;
+  }
+  .strip-pills-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .calibration-controls-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .clinical-disclaimer-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 12px;
+  }
+  .instrument-header {
+    padding: 10px 12px;
+  }
+  .workbench-shell {
+    padding: 10px 12px 28px;
+  }
+  .view-nav {
+    width: 100%;
+    overflow-x: auto;
+  }
+  .view-tab-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 8px 8px;
+    font-size: 12px;
+  }
+  .strip-pills-row {
+    grid-template-columns: 1fr;
+  }
+  .calibration-controls-grid {
+    grid-template-columns: 1fr;
+  }
+  .intervals-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
