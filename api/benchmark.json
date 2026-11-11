@@ -1,0 +1,357 @@
+{
+  "datasetName": "PhysioNet PTB-XL & MIT-BIH Held-Out Paper-ECG Benchmark (120 Strips / 24 Held-Out Subjects)",
+  "protocolVersion": "PhysioNet-2024-Aligned-v1.0",
+  "seed": 42,
+  "physionetVerifiedRecords": [
+    "100",
+    "101",
+    "103",
+    "105",
+    "112",
+    "115",
+    "117",
+    "122"
+  ],
+  "totalHeldOutSubjects": 24,
+  "totalHeldOutStrips": 120,
+  "samplingRateHz": 250,
+  "defaultGateThreshold": 65,
+  "methodComparison": [
+    {
+      "method": "viterbi_dp",
+      "methodName": "Viterbi DP Continuity Tracker (Gated, GTQI \u2265 65)",
+      "snrDbMean": 18.16,
+      "snrDbCi95": [
+        17.63,
+        18.66
+      ],
+      "rmseUvMean": 37.1,
+      "rmseUvCi95": [
+        34.83,
+        39.41
+      ],
+      "pearsonRMean": 0.9914,
+      "hrMaeBpmMean": 0.12,
+      "rrMaeMsMean": 1.4,
+      "qrsMaeMsMean": 3.5,
+      "qrsMaeMsCi95": [
+        3.19,
+        3.94
+      ],
+      "qtMaeMsMean": 2.9,
+      "qtMaeMsCi95": [
+        2.02,
+        3.9
+      ],
+      "qtcMaeMsMean": 3.2,
+      "availabilityPct": 60.0
+    },
+    {
+      "method": "viterbi_dp",
+      "methodName": "Viterbi DP Continuity Tracker (Ungated, 100% All Strips)",
+      "snrDbMean": 15.18,
+      "snrDbCi95": [
+        14.38,
+        16.01
+      ],
+      "rmseUvMean": 57.0,
+      "rmseUvCi95": [
+        51.78,
+        62.09
+      ],
+      "pearsonRMean": 0.9763,
+      "hrMaeBpmMean": 0.23,
+      "rrMaeMsMean": 3.8,
+      "qrsMaeMsMean": 3.9,
+      "qrsMaeMsCi95": [
+        3.26,
+        4.57
+      ],
+      "qtMaeMsMean": 9.6,
+      "qtMaeMsCi95": [
+        6.53,
+        13.11
+      ],
+      "qtcMaeMsMean": 10.3,
+      "availabilityPct": 100.0
+    },
+    {
+      "method": "morph_centroid",
+      "methodName": "Chromatic Grid-Suppressed Centroid (Ungated Baseline)",
+      "snrDbMean": 11.37,
+      "snrDbCi95": [
+        10.61,
+        12.15
+      ],
+      "rmseUvMean": 87.8,
+      "rmseUvCi95": [
+        80.25,
+        95.85
+      ],
+      "pearsonRMean": 0.945,
+      "hrMaeBpmMean": 1.24,
+      "rrMaeMsMean": 15.8,
+      "qrsMaeMsMean": 5.4,
+      "qrsMaeMsCi95": [
+        4.63,
+        6.2
+      ],
+      "qtMaeMsMean": 13.2,
+      "qtMaeMsCi95": [
+        9.94,
+        17.14
+      ],
+      "qtcMaeMsMean": 17.1,
+      "availabilityPct": 100.0
+    },
+    {
+      "method": "column_argmax",
+      "methodName": "Naive Column-Argmax Darkness Baseline",
+      "snrDbMean": 11.54,
+      "snrDbCi95": [
+        10.14,
+        12.93
+      ],
+      "rmseUvMean": 107.8,
+      "rmseUvCi95": [
+        93.41,
+        121.5
+      ],
+      "pearsonRMean": 0.9077,
+      "hrMaeBpmMean": 7.01,
+      "rrMaeMsMean": 73.3,
+      "qrsMaeMsMean": 6.5,
+      "qrsMaeMsCi95": [
+        5.15,
+        7.89
+      ],
+      "qtMaeMsMean": 25.7,
+      "qtMaeMsCi95": [
+        19.61,
+        32.72
+      ],
+      "qtcMaeMsMean": 28.1,
+      "availabilityPct": 100.0
+    }
+  ],
+  "ungatedVsGated": {
+    "ungatedViterbi": {
+      "method": "viterbi_dp",
+      "methodName": "Viterbi DP Continuity Tracker (Ungated, 100% All Strips)",
+      "snrDbMean": 15.18,
+      "snrDbCi95": [
+        14.38,
+        16.01
+      ],
+      "rmseUvMean": 57.0,
+      "rmseUvCi95": [
+        51.78,
+        62.09
+      ],
+      "pearsonRMean": 0.9763,
+      "hrMaeBpmMean": 0.23,
+      "rrMaeMsMean": 3.8,
+      "qrsMaeMsMean": 3.9,
+      "qrsMaeMsCi95": [
+        3.26,
+        4.57
+      ],
+      "qtMaeMsMean": 9.6,
+      "qtMaeMsCi95": [
+        6.53,
+        13.11
+      ],
+      "qtcMaeMsMean": 10.3,
+      "availabilityPct": 100.0
+    },
+    "gatedViterbi": {
+      "method": "viterbi_dp",
+      "methodName": "Viterbi DP Continuity Tracker (Gated, GTQI \u2265 65)",
+      "snrDbMean": 18.16,
+      "snrDbCi95": [
+        17.63,
+        18.66
+      ],
+      "rmseUvMean": 37.1,
+      "rmseUvCi95": [
+        34.83,
+        39.41
+      ],
+      "pearsonRMean": 0.9914,
+      "hrMaeBpmMean": 0.12,
+      "rrMaeMsMean": 1.4,
+      "qrsMaeMsMean": 3.5,
+      "qrsMaeMsCi95": [
+        3.19,
+        3.94
+      ],
+      "qtMaeMsMean": 2.9,
+      "qtMaeMsCi95": [
+        2.02,
+        3.9
+      ],
+      "qtcMaeMsMean": 3.2,
+      "availabilityPct": 60.0
+    }
+  },
+  "tierBreakdown": [
+    {
+      "tier": "tier1_clean",
+      "tierLabel": "Tier 1: Clean Flatbed Scan (300 DPI)",
+      "nStrips": 24,
+      "viterbiSnrDb": 19.14,
+      "viterbiRmseUv": 32.1,
+      "viterbiPearsonR": 0.9941,
+      "viterbiQrsMaeMs": 3.0,
+      "viterbiQtMaeMs": 2.1,
+      "centroidSnrDb": 17.49,
+      "centroidRmseUv": 38.8,
+      "centroidQtMaeMs": 2.4,
+      "argmaxSnrDb": 20.56,
+      "argmaxRmseUv": 27.7,
+      "argmaxQtMaeMs": 2.3,
+      "meanGtqi": 88.9,
+      "passRatePct": 100.0
+    },
+    {
+      "tier": "tier2_skewed",
+      "tierLabel": "Tier 2: Rotated & Perspective Skew (\u00b14.5\u00b0)",
+      "nStrips": 24,
+      "viterbiSnrDb": 15.36,
+      "viterbiRmseUv": 50.2,
+      "viterbiPearsonR": 0.985,
+      "viterbiQrsMaeMs": 4.6,
+      "viterbiQtMaeMs": 4.8,
+      "centroidSnrDb": 10.6,
+      "centroidRmseUv": 85.8,
+      "centroidQtMaeMs": 12.0,
+      "argmaxSnrDb": 11.47,
+      "argmaxRmseUv": 78.4,
+      "argmaxQtMaeMs": 13.4,
+      "meanGtqi": 74.8,
+      "passRatePct": 100.0
+    },
+    {
+      "tier": "tier3_shadow",
+      "tierLabel": "Tier 3: Smartphone Uneven Illumination Shadow",
+      "nStrips": 24,
+      "viterbiSnrDb": 19.98,
+      "viterbiRmseUv": 29.1,
+      "viterbiPearsonR": 0.995,
+      "viterbiQrsMaeMs": 3.0,
+      "viterbiQtMaeMs": 1.8,
+      "centroidSnrDb": 13.21,
+      "centroidRmseUv": 63.5,
+      "centroidQtMaeMs": 12.8,
+      "argmaxSnrDb": 19.18,
+      "argmaxRmseUv": 32.5,
+      "argmaxQtMaeMs": 2.9,
+      "meanGtqi": 74.8,
+      "passRatePct": 100.0
+    },
+    {
+      "tier": "tier4_faded",
+      "tierLabel": "Tier 4: Faded Archival Thermal Ink (55% Loss)",
+      "nStrips": 24,
+      "viterbiSnrDb": 12.32,
+      "viterbiRmseUv": 70.3,
+      "viterbiPearsonR": 0.9703,
+      "viterbiQrsMaeMs": 2.2,
+      "viterbiQtMaeMs": 12.1,
+      "centroidSnrDb": 10.65,
+      "centroidRmseUv": 85.2,
+      "centroidQtMaeMs": 13.9,
+      "argmaxSnrDb": 3.47,
+      "argmaxRmseUv": 194.8,
+      "argmaxQtMaeMs": 81.3,
+      "meanGtqi": 60.4,
+      "passRatePct": 0.0
+    },
+    {
+      "tier": "tier5_collision",
+      "tierLabel": "Tier 5: Severe Lead Overlap & Crease Dropout",
+      "nStrips": 24,
+      "viterbiSnrDb": 9.09,
+      "viterbiRmseUv": 103.1,
+      "viterbiPearsonR": 0.937,
+      "viterbiQrsMaeMs": 6.4,
+      "viterbiQtMaeMs": 27.1,
+      "centroidSnrDb": 4.89,
+      "centroidRmseUv": 165.7,
+      "centroidQtMaeMs": 25.1,
+      "argmaxSnrDb": 3.03,
+      "argmaxRmseUv": 205.5,
+      "argmaxQtMaeMs": 28.4,
+      "meanGtqi": 40.6,
+      "passRatePct": 0.0
+    }
+  ],
+  "gateTradeoffCurve": [
+    {
+      "threshold": 0,
+      "availabilityPct": 100.0,
+      "retainedStrips": 120,
+      "totalStrips": 120,
+      "snrDb": 15.18,
+      "rmseUv": 57.0,
+      "qrsMaeMs": 3.9,
+      "qtMaeMs": 9.6,
+      "qtcMaeMs": 10.3
+    },
+    {
+      "threshold": 45,
+      "availabilityPct": 80.0,
+      "retainedStrips": 96,
+      "totalStrips": 120,
+      "snrDb": 16.7,
+      "rmseUv": 45.4,
+      "qrsMaeMs": 3.2,
+      "qtMaeMs": 5.2,
+      "qtcMaeMs": 5.5
+    },
+    {
+      "threshold": 55,
+      "availabilityPct": 80.0,
+      "retainedStrips": 96,
+      "totalStrips": 120,
+      "snrDb": 16.7,
+      "rmseUv": 45.4,
+      "qrsMaeMs": 3.2,
+      "qtMaeMs": 5.2,
+      "qtcMaeMs": 5.5
+    },
+    {
+      "threshold": 65,
+      "availabilityPct": 60.0,
+      "retainedStrips": 72,
+      "totalStrips": 120,
+      "snrDb": 18.16,
+      "rmseUv": 37.1,
+      "qrsMaeMs": 3.5,
+      "qtMaeMs": 2.9,
+      "qtcMaeMs": 3.2
+    },
+    {
+      "threshold": 75,
+      "availabilityPct": 41.7,
+      "retainedStrips": 50,
+      "totalStrips": 120,
+      "snrDb": 18.27,
+      "rmseUv": 35.6,
+      "qrsMaeMs": 3.4,
+      "qtMaeMs": 3.3,
+      "qtcMaeMs": 3.6
+    },
+    {
+      "threshold": 85,
+      "availabilityPct": 20.0,
+      "retainedStrips": 24,
+      "totalStrips": 120,
+      "snrDb": 19.14,
+      "rmseUv": 32.1,
+      "qrsMaeMs": 3.0,
+      "qtMaeMs": 2.1,
+      "qtcMaeMs": 2.5
+    }
+  ]
+}
